@@ -29,5 +29,5 @@ class Visitor extends JassParserListener {
 
 ParseTreeWalker.DEFAULT.walk(new Visitor(), tree)
 
-
+// https://stackoverflow.com/questions/35434932/antlr4-javascript-visitor
 
