@@ -6,80 +6,26 @@ import antlr4 from 'antlr4';
 
 export default class JassParserVisitor extends antlr4.tree.ParseTreeVisitor {
 
-	// Visit a parse tree produced by JassParser#start.
-	visitStart(ctx) {
+	// Visit a parse tree produced by JassParser#root.
+	visitRoot(ctx) {
 	  return this.visitChildren(ctx);
 	}
 
 
-	// Visit a parse tree produced by JassParser#chunk.
-	visitChunk(ctx) {
+	// Visit a parse tree produced by JassParser#typeDef.
+	visitTypeDef(ctx) {
 	  return this.visitChildren(ctx);
 	}
 
 
-	// Visit a parse tree produced by JassParser#block.
-	visitBlock(ctx) {
+	// Visit a parse tree produced by JassParser#typeName.
+	visitTypeName(ctx) {
 	  return this.visitChildren(ctx);
 	}
 
 
-	// Visit a parse tree produced by JassParser#stat.
-	visitStat(ctx) {
-	  return this.visitChildren(ctx);
-	}
-
-
-	// Visit a parse tree produced by JassParser#attnamelist.
-	visitAttnamelist(ctx) {
-	  return this.visitChildren(ctx);
-	}
-
-
-	// Visit a parse tree produced by JassParser#attrib.
-	visitAttrib(ctx) {
-	  return this.visitChildren(ctx);
-	}
-
-
-	// Visit a parse tree produced by JassParser#retstat.
-	visitRetstat(ctx) {
-	  return this.visitChildren(ctx);
-	}
-
-
-	// Visit a parse tree produced by JassParser#label.
-	visitLabel(ctx) {
-	  return this.visitChildren(ctx);
-	}
-
-
-	// Visit a parse tree produced by JassParser#funcname.
-	visitFuncname(ctx) {
-	  return this.visitChildren(ctx);
-	}
-
-
-	// Visit a parse tree produced by JassParser#varlist.
-	visitVarlist(ctx) {
-	  return this.visitChildren(ctx);
-	}
-
-
-	// Visit a parse tree produced by JassParser#namelist.
-	visitNamelist(ctx) {
-	  return this.visitChildren(ctx);
-	}
-
-
-	// Visit a parse tree produced by JassParser#explist.
-	visitExplist(ctx) {
-	  return this.visitChildren(ctx);
-	}
-
-
-	// Visit a parse tree produced by JassParser#exp.
-	visitExp(ctx) {
+	// Visit a parse tree produced by JassParser#typeNameBase.
+	visitTypeNameBase(ctx) {
 	  return this.visitChildren(ctx);
 	}
 
@@ -90,74 +36,170 @@ export default class JassParserVisitor extends antlr4.tree.ParseTreeVisitor {
 	}
 
 
-	// Visit a parse tree produced by JassParser#prefixexp.
-	visitPrefixexp(ctx) {
+	// Visit a parse tree produced by JassParser#glob.
+	visitGlob(ctx) {
 	  return this.visitChildren(ctx);
 	}
 
 
-	// Visit a parse tree produced by JassParser#functioncall.
-	visitFunctioncall(ctx) {
+	// Visit a parse tree produced by JassParser#gvar.
+	visitGvar(ctx) {
 	  return this.visitChildren(ctx);
 	}
 
 
-	// Visit a parse tree produced by JassParser#args.
-	visitArgs(ctx) {
+	// Visit a parse tree produced by JassParser#argList.
+	visitArgList(ctx) {
 	  return this.visitChildren(ctx);
 	}
 
 
-	// Visit a parse tree produced by JassParser#functiondef.
-	visitFunctiondef(ctx) {
+	// Visit a parse tree produced by JassParser#funCall.
+	visitFunCall(ctx) {
 	  return this.visitChildren(ctx);
 	}
 
 
-	// Visit a parse tree produced by JassParser#funcbody.
-	visitFuncbody(ctx) {
+	// Visit a parse tree produced by JassParser#param.
+	visitParam(ctx) {
 	  return this.visitChildren(ctx);
 	}
 
 
-	// Visit a parse tree produced by JassParser#parlist.
-	visitParlist(ctx) {
+	// Visit a parse tree produced by JassParser#paramList.
+	visitParamList(ctx) {
 	  return this.visitChildren(ctx);
 	}
 
 
-	// Visit a parse tree produced by JassParser#tableconstructor.
-	visitTableconstructor(ctx) {
+	// Visit a parse tree produced by JassParser#funTake.
+	visitFunTake(ctx) {
 	  return this.visitChildren(ctx);
 	}
 
 
-	// Visit a parse tree produced by JassParser#fieldlist.
-	visitFieldlist(ctx) {
+	// Visit a parse tree produced by JassParser#funRet.
+	visitFunRet(ctx) {
 	  return this.visitChildren(ctx);
 	}
 
 
-	// Visit a parse tree produced by JassParser#field.
-	visitField(ctx) {
+	// Visit a parse tree produced by JassParser#fun.
+	visitFun(ctx) {
 	  return this.visitChildren(ctx);
 	}
 
 
-	// Visit a parse tree produced by JassParser#fieldsep.
-	visitFieldsep(ctx) {
+	// Visit a parse tree produced by JassParser#funHead.
+	visitFunHead(ctx) {
 	  return this.visitChildren(ctx);
 	}
 
 
-	// Visit a parse tree produced by JassParser#number.
-	visitNumber(ctx) {
+	// Visit a parse tree produced by JassParser#funStmt.
+	visitFunStmt(ctx) {
 	  return this.visitChildren(ctx);
 	}
 
 
-	// Visit a parse tree produced by JassParser#string.
-	visitString(ctx) {
+	// Visit a parse tree produced by JassParser#funName.
+	visitFunName(ctx) {
+	  return this.visitChildren(ctx);
+	}
+
+
+	// Visit a parse tree produced by JassParser#nativ.
+	visitNativ(ctx) {
+	  return this.visitChildren(ctx);
+	}
+
+
+	// Visit a parse tree produced by JassParser#stmt.
+	visitStmt(ctx) {
+	  return this.visitChildren(ctx);
+	}
+
+
+	// Visit a parse tree produced by JassParser#lvarStmt.
+	visitLvarStmt(ctx) {
+	  return this.visitChildren(ctx);
+	}
+
+
+	// Visit a parse tree produced by JassParser#setStmt.
+	visitSetStmt(ctx) {
+	  return this.visitChildren(ctx);
+	}
+
+
+	// Visit a parse tree produced by JassParser#callStmt.
+	visitCallStmt(ctx) {
+	  return this.visitChildren(ctx);
+	}
+
+
+	// Visit a parse tree produced by JassParser#returnStmt.
+	visitReturnStmt(ctx) {
+	  return this.visitChildren(ctx);
+	}
+
+
+	// Visit a parse tree produced by JassParser#ifStmt.
+	visitIfStmt(ctx) {
+	  return this.visitChildren(ctx);
+	}
+
+
+	// Visit a parse tree produced by JassParser#elseIfStmt.
+	visitElseIfStmt(ctx) {
+	  return this.visitChildren(ctx);
+	}
+
+
+	// Visit a parse tree produced by JassParser#elseStmt.
+	visitElseStmt(ctx) {
+	  return this.visitChildren(ctx);
+	}
+
+
+	// Visit a parse tree produced by JassParser#loopStmt.
+	visitLoopStmt(ctx) {
+	  return this.visitChildren(ctx);
+	}
+
+
+	// Visit a parse tree produced by JassParser#exitWhenStmt.
+	visitExitWhenStmt(ctx) {
+	  return this.visitChildren(ctx);
+	}
+
+
+	// Visit a parse tree produced by JassParser#expr.
+	visitExpr(ctx) {
+	  return this.visitChildren(ctx);
+	}
+
+
+	// Visit a parse tree produced by JassParser#prim.
+	visitPrim(ctx) {
+	  return this.visitChildren(ctx);
+	}
+
+
+	// Visit a parse tree produced by JassParser#str.
+	visitStr(ctx) {
+	  return this.visitChildren(ctx);
+	}
+
+
+	// Visit a parse tree produced by JassParser#arrayAccess.
+	visitArrayAccess(ctx) {
+	  return this.visitChildren(ctx);
+	}
+
+
+	// Visit a parse tree produced by JassParser#funcAsCode.
+	visitFuncAsCode(ctx) {
 	  return this.visitChildren(ctx);
 	}
 

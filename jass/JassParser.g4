@@ -3,164 +3,113 @@
 
 parser grammar JassParser;
 
+// https://web.mit.edu/dmaze/school/6.824/antlr-2.7.0/doc/options.html
 options {
     tokenVocab = JassLexer;
+    language = JavaScript;
 }
 
-start
-    : chunk EOF
+// https://github.com/antlr/grammars-v4
+
+root: (typeDef | nativ | glob | fun)* EOF ;
+
+
+// === type
+typeDef : TYPE typeName EXTENDS typeNameBase ;
+typeName : HANDLE|INTEGER|REAL|BOOLEAN|STRING|CODE|ID ;
+typeNameBase : typeName;
+
+// === globals
+var : typeName ARRAY? ID (EQ expr)?  ;
+
+glob : GLOBALS gvar* ENDGLOBALS  ;
+gvar : CONSTANT? var  ;
+
+
+// === function
+argList : expr (COMMA expr)*  ;
+funCall : funName LPAREN argList? RPAREN  ;
+
+param : typeName ID ;
+paramList : param (COMMA param)*  ;
+
+funTake : TAKES (NOTHING|paramList) ;
+funRet : RETURNS (NOTHING|typeName) ;
+fun : CONSTANT? FUNCTION funHead funStmt ENDFUNCTION ;
+funHead : funName funTake? funRet?  ;
+funStmt : stmt*  ;
+
+// https://github.com/JetBrains/Grammar-Kit/blob/master/HOWTO.md#22-using-recoverwhile-attribute
+
+funName : ID ;
+
+nativ : CONSTANT? NATIVE funHead  ;
+
+// === STATEMENT
+stmt :
+    setStmt |
+    callStmt |
+    lvarStmt |
+    returnStmt |
+    ifStmt |
+    loopStmt |
+    exitWhenStmt
     ;
 
-chunk
-    : block
+
+lvarStmt : LOCAL? var  ;
+
+setStmt : SET? (arrayAccess|ID) EQ expr  ;
+
+callStmt : DEBUG? ((CALL? funCall)|(CALL funCall?)) ;
+
+returnStmt : RETURN expr?  ;
+
+ifStmt : IF expr THEN? (stmt|elseIfStmt|elseStmt)* ENDIF  ;
+elseIfStmt : ELSEIF expr THEN? stmt*  ;
+elseStmt : ELSE stmt*  ;
+
+loopStmt : LOOP stmt* ENDLOOP  ;
+exitWhenStmt :EXITWHEN expr  ;
+
+// === EXPRESSION
+expr
+    : expr PLUS expr
+    | expr MINUS expr
+    | expr MUL expr
+    | expr DIV expr
+    | MUL expr
+    | DIV expr
+    | PLUS expr
+    | MINUS expr
+    | NOT expr
+    | expr EQ_EQ expr
+    | expr NEQ expr
+    | expr LT expr
+    | expr LT_EQ expr
+    | expr GT expr
+    | expr GT_EQ expr
+    | expr OR expr
+    | expr AND expr
+    | LPAREN expr RPAREN
+    | prim
     ;
 
-block
-    : stat* retstat?
-    ;
 
-stat
-    : ';'
-    | varlist '=' explist
-    | functioncall
-    | label
-    | 'break'
-    | 'goto' NAME
-    | 'do' block 'end'
-    | 'while' exp 'do' block 'end'
-    | 'repeat' block 'until' exp
-    | 'if' exp 'then' block ('elseif' exp 'then' block)* ('else' block)? 'end'
-    | 'for' NAME '=' exp ',' exp (',' exp)? 'do' block 'end'
-    | 'for' namelist 'in' explist 'do' block 'end'
-    | 'function' funcname funcbody
-    | 'local' 'function' NAME funcbody
-    | 'local' attnamelist ('=' explist)?
-    ;
+prim :
+    arrayAccess |
+    funCall |
+    funcAsCode |
+    FALSE |
+    NULL |
+    TRUE |
+    HEXVAL |
+    REALVAL |
+    INTVAL |
+    RAWVAL |
+    str |
+    ID ;
 
-attnamelist
-    : NAME attrib (',' NAME attrib)*
-    ;
-
-attrib
-    : ('<' NAME '>')?
-    ;
-
-retstat
-    : ('return' explist? | 'break' | 'continue') ';'?
-    ;
-
-label
-    : '::' NAME '::'
-    ;
-
-funcname
-    : NAME ('.' NAME)* (':' NAME)?
-    ;
-
-varlist
-    : var (',' var)*
-    ;
-
-namelist
-    : NAME (',' NAME)*
-    ;
-
-explist
-    : exp (',' exp)*
-    ;
-
-exp
-    : 'nil'
-    | 'false'
-    | 'true'
-    | number
-    | string
-    | '...'
-    | functiondef
-    | prefixexp
-    | tableconstructor
-    | <assoc = right> exp ('^') exp
-    | ('not' | '#' | '-' | '~') exp
-    | exp ('*' | '/' | '%' | '//') exp
-    | exp ('+' | '-') exp
-    | <assoc = right> exp ('..') exp
-    | exp ('<' | '>' | '<=' | '>=' | '~=' | '==') exp
-    | exp ('and') exp
-    | exp ('or') exp
-    | exp ('&' | '|' | '~' | '<<' | '>>') exp
-    ;
-
-// var ::=  Name | prefixexp '[' exp ']' | prefixexp '.' Name
-var
-    : NAME
-    | prefixexp ('[' exp ']' | '.' NAME)
-    ;
-
-// prefixexp ::= var | functioncall | '(' exp ')'
-prefixexp
-    : NAME ('[' exp ']' | '.' NAME)*
-    | functioncall ('[' exp ']' | '.' NAME)*
-    | '(' exp ')' ('[' exp ']' | '.' NAME)*
-    ;
-
-// functioncall ::=  prefixexp args | prefixexp ':' Name args;
-functioncall
-    : NAME ('[' exp ']' | '.' NAME)* args
-    | functioncall ('[' exp ']' | '.' NAME)* args
-    | '(' exp ')' ('[' exp ']' | '.' NAME)* args
-    | NAME ('[' exp ']' | '.' NAME)* ':' NAME args
-    | functioncall ('[' exp ']' | '.' NAME)* ':' NAME args
-    | '(' exp ')' ('[' exp ']' | '.' NAME)* ':' NAME args
-    ;
-
-args
-    : '(' explist? ')'
-    | tableconstructor
-    | string
-    ;
-
-functiondef
-    : 'function' funcbody
-    ;
-
-funcbody
-    : '(' parlist ')' block 'end'
-    ;
-
-parlist
-    : namelist (',' '...')?
-    | '...'
-    |
-    ;
-
-tableconstructor
-    : '{' fieldlist? '}'
-    ;
-
-fieldlist
-    : field (fieldsep field)* fieldsep?
-    ;
-
-field
-    : '[' exp ']' '=' exp
-    | NAME '=' exp
-    | exp
-    ;
-
-fieldsep
-    : ','
-    | ';'
-    ;
-
-number
-    : INT
-    | HEX
-    | FLOAT
-    | HEX_FLOAT
-    ;
-
-string
-    : NORMALSTRING
-    | CHARSTRING
-    | LONGSTRING
-    ;
+str : STRVAL ;
+arrayAccess : ID LBRACK expr? RBRACK ;
+funcAsCode : FUNCTION funName ;
