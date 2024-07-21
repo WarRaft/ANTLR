@@ -8,7 +8,7 @@ import JassParserVisitor from '../../../gen/JassParserVisitor.js'
 // https://github.com/antlr/antlr4/blob/master/doc/javascript-target.md
 
 
-const input = fs.readFileSync('example.j', {encoding: 'utf8', flag: 'r'})
+const input = fs.readFileSync('Main.j', {encoding: 'utf8', flag: 'r'})
 
 // lexer
 const tokens = new antlr4.CommonTokenStream(new JassLexer(new antlr4.InputStream(input)))

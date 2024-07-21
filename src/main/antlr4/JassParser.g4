@@ -3,10 +3,15 @@
 
 parser grammar JassParser;
 
+
+@header {
+    package raft.war.parser.jass;
+}
+
 // https://web.mit.edu/dmaze/school/6.824/antlr-2.7.0/doc/options.html
 options {
     tokenVocab = JassLexer;
-    language = JavaScript;
+    language = Java;
 }
 
 // https://github.com/antlr/grammars-v4

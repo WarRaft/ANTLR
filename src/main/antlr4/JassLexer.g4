@@ -8,7 +8,7 @@ options {
     language = JavaScript;
 }
 
-    AND : 'and';
+AND : 'and';
   ARRAY : 'array';
   BOOLEAN : 'boolean';
   CODE : 'code';
