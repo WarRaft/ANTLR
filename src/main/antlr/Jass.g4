@@ -15,11 +15,10 @@ typeName : HANDLE|INTEGER|REAL|BOOLEAN|STRING|CODE|ID ;
 typeNameBase : typeName;
 
 // === globals
-var : typeName ARRAY? ID (EQ expr)?  ;
+vardef : typeName ARRAY? ID (EQ expr)?  ;
 
 glob : GLOBALS gvar* ENDGLOBALS  ;
-gvar : CONSTANT? var  ;
-
+gvar : CONSTANT? vardef  ;
 
 // === function
 argList : expr (COMMA expr)*  ;
@@ -52,7 +51,7 @@ stmt :
     ;
 
 
-lvarStmt : LOCAL? var  ;
+lvarStmt : LOCAL? vardef  ;
 
 setStmt : SET? (arrayAccess|ID) EQ expr  ;
 
@@ -94,7 +93,7 @@ expr
 prim :
     arrayAccess |
     funCall |
-    funcAsCode |
+    funRef |
     FALSE |
     NULL |
     TRUE |
@@ -102,14 +101,11 @@ prim :
     REALVAL |
     INTVAL |
     RAWVAL |
-    str |
+    STRVAL |
     ID ;
 
-str : STRVAL ;
 arrayAccess : ID LBRACK expr? RBRACK ;
-funcAsCode : FUNCTION funName ;
-
-
+funRef : FUNCTION funName ;
 
 AND : 'and';
 ARRAY : 'array';
@@ -168,12 +164,13 @@ RBRACK : ']';
 
 ID : [A-Za-z_][_0-9A-Za-z]*;
 INTVAL: Digit+;
+fragment Digit: [0-9];
 
 STRVAL: '"'  ~('\\' | '"')* '"';
 
 RAWVAL: '\''  ~('\'' | '\\')* '\'';
 
-fragment Digit: [0-9];
+
 fragment HexDigit: [0-9a-fA-F];
 
 HEXVAL: '0' [xX] HexDigit+;

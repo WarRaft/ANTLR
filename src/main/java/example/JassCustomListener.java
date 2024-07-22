@@ -1,7 +1,7 @@
 package example;
 
-import anal.example.JassBaseListener;
-import anal.example.JassParser;
+import raft.war.antlr.jass.JassBaseListener;
+import raft.war.antlr.jass.JassParser;
 
 public class JassCustomListener extends JassBaseListener {
     @Override

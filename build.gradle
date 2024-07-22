@@ -1,8 +1,20 @@
-group 'anal.example'
-version '1.0.0'
+// https://docs.gradle.org/current/userguide/publishing_maven.html
+// https://www.jetbrains.com/help/idea/add-a-gradle-library-to-the-maven-repository.html
 
-apply plugin: 'java'
-apply plugin: 'antlr'
+
+plugins {
+    id 'java-library'
+    id 'antlr'
+    id 'maven-publish'
+}
+
+group 'raft.war.antlr'
+version '1.0-SNAPSHOT'
+
+
+wrapper {
+    gradleVersion = '8.9'
+}
 
 repositories {
     mavenLocal()
@@ -11,11 +23,13 @@ repositories {
 
 configurations {
     compile {}
+    testCompile {}
 }
 
 dependencies {
     antlr "org.antlr:antlr4:4.13.1"
     compile "org.antlr:antlr4-runtime:4.13.1"
+    testCompile group: 'junit', name: 'junit', version: '4.13.1'
 }
 
 tasks {
@@ -34,6 +48,3 @@ sourceSets {
     }
 }
 
-clean.doLast {
-    file('generated-src').deleteDir()
-}

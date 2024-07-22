@@ -1,5 +1,5 @@
-// Generated from /Users/nazarpunk/IdeaProjects/ANTLR/src/main/antlr/anal/example/Jass.g4 by ANTLR 4.13.1
-package anal.example;
+// Generated from /Users/nazarpunk/IdeaProjects/ANTLR/src/main/antlr/Jass.g4 by ANTLR 4.13.1
+package raft.war.antlr.jass;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -35,11 +35,11 @@ public interface JassVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitTypeNameBase(JassParser.TypeNameBaseContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link JassParser#var}.
+	 * Visit a parse tree produced by {@link JassParser#vardef}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitVar(JassParser.VarContext ctx);
+	T visitVardef(JassParser.VardefContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link JassParser#glob}.
 	 * @param ctx the parse tree
@@ -191,21 +191,15 @@ public interface JassVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitPrim(JassParser.PrimContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link JassParser#str}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitStr(JassParser.StrContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link JassParser#arrayAccess}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitArrayAccess(JassParser.ArrayAccessContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link JassParser#funcAsCode}.
+	 * Visit a parse tree produced by {@link JassParser#funRef}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitFuncAsCode(JassParser.FuncAsCodeContext ctx);
+	T visitFunRef(JassParser.FunRefContext ctx);
 }

@@ -1,5 +1,5 @@
-// Generated from /Users/nazarpunk/IdeaProjects/ANTLR/src/main/antlr/anal/example/Jass.g4 by ANTLR 4.13.1
-package anal.example;
+// Generated from /Users/nazarpunk/IdeaProjects/ANTLR/src/main/antlr/Jass.g4 by ANTLR 4.13.1
+package raft.war.antlr.jass;
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 
 /**
@@ -46,7 +46,7 @@ public class JassBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements J
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitVar(JassParser.VarContext ctx) { return visitChildren(ctx); }
+	@Override public T visitVardef(JassParser.VardefContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -228,13 +228,6 @@ public class JassBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements J
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitStr(JassParser.StrContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
 	@Override public T visitArrayAccess(JassParser.ArrayAccessContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
@@ -242,5 +235,5 @@ public class JassBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements J
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitFuncAsCode(JassParser.FuncAsCodeContext ctx) { return visitChildren(ctx); }
+	@Override public T visitFunRef(JassParser.FunRefContext ctx) { return visitChildren(ctx); }
 }

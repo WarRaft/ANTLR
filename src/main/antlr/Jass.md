@@ -18,7 +18,7 @@ Empty
 
 ### Package/namespace for the generated code
 
-`anal.example`
+`raft.war.antlr.jass`
 
 ### Language (e.g., Java, Python2, Sharp, ...)
 

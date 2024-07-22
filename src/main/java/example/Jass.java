@@ -4,10 +4,10 @@ package example;
 
 import java.io.IOException;
 
-import anal.example.JassLexer;
-import anal.example.JassParser;
 import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.tree.*;
+import raft.war.antlr.jass.JassLexer;
+import raft.war.antlr.jass.JassParser;
 
 import static org.antlr.v4.runtime.CharStreams.fromFileName;
 

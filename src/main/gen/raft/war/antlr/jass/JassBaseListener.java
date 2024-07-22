@@ -1,5 +1,5 @@
-// Generated from /Users/nazarpunk/IdeaProjects/ANTLR/src/main/antlr/anal/example/Jass.g4 by ANTLR 4.13.1
-package anal.example;
+// Generated from /Users/nazarpunk/IdeaProjects/ANTLR/src/main/antlr/Jass.g4 by ANTLR 4.13.1
+package raft.war.antlr.jass;
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
@@ -65,13 +65,13 @@ public class JassBaseListener implements JassListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterVar(JassParser.VarContext ctx) { }
+	@Override public void enterVardef(JassParser.VardefContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitVar(JassParser.VarContext ctx) { }
+	@Override public void exitVardef(JassParser.VardefContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -377,18 +377,6 @@ public class JassBaseListener implements JassListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterStr(JassParser.StrContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitStr(JassParser.StrContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterArrayAccess(JassParser.ArrayAccessContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -401,13 +389,13 @@ public class JassBaseListener implements JassListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFuncAsCode(JassParser.FuncAsCodeContext ctx) { }
+	@Override public void enterFunRef(JassParser.FunRefContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFuncAsCode(JassParser.FuncAsCodeContext ctx) { }
+	@Override public void exitFunRef(JassParser.FunRefContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

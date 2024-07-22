@@ -1,5 +1,5 @@
-// Generated from /Users/nazarpunk/IdeaProjects/ANTLR/src/main/antlr/anal/example/Jass.g4 by ANTLR 4.13.1
-package anal.example;
+// Generated from /Users/nazarpunk/IdeaProjects/ANTLR/src/main/antlr/Jass.g4 by ANTLR 4.13.1
+package raft.war.antlr.jass;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -48,15 +48,15 @@ public interface JassListener extends ParseTreeListener {
 	 */
 	void exitTypeNameBase(JassParser.TypeNameBaseContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link JassParser#var}.
+	 * Enter a parse tree produced by {@link JassParser#vardef}.
 	 * @param ctx the parse tree
 	 */
-	void enterVar(JassParser.VarContext ctx);
+	void enterVardef(JassParser.VardefContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link JassParser#var}.
+	 * Exit a parse tree produced by {@link JassParser#vardef}.
 	 * @param ctx the parse tree
 	 */
-	void exitVar(JassParser.VarContext ctx);
+	void exitVardef(JassParser.VardefContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link JassParser#glob}.
 	 * @param ctx the parse tree
@@ -308,16 +308,6 @@ public interface JassListener extends ParseTreeListener {
 	 */
 	void exitPrim(JassParser.PrimContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link JassParser#str}.
-	 * @param ctx the parse tree
-	 */
-	void enterStr(JassParser.StrContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JassParser#str}.
-	 * @param ctx the parse tree
-	 */
-	void exitStr(JassParser.StrContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link JassParser#arrayAccess}.
 	 * @param ctx the parse tree
 	 */
@@ -328,13 +318,13 @@ public interface JassListener extends ParseTreeListener {
 	 */
 	void exitArrayAccess(JassParser.ArrayAccessContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link JassParser#funcAsCode}.
+	 * Enter a parse tree produced by {@link JassParser#funRef}.
 	 * @param ctx the parse tree
 	 */
-	void enterFuncAsCode(JassParser.FuncAsCodeContext ctx);
+	void enterFunRef(JassParser.FunRefContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link JassParser#funcAsCode}.
+	 * Exit a parse tree produced by {@link JassParser#funRef}.
 	 * @param ctx the parse tree
 	 */
-	void exitFuncAsCode(JassParser.FuncAsCodeContext ctx);
+	void exitFunRef(JassParser.FunRefContext ctx);
 }
