@@ -1,4 +1,4 @@
-// Generated from /Users/nazarpunk/IdeaProjects/ANTLR/src/main/antlr/Jass.g4 by ANTLR 4.13.1
+// Generated from /Users/nazarpunk/IdeaProjects/ANTLR/src/main/antlr/raft/war/antlr/jass/Jass.g4 by ANTLR 4.13.1
 package raft.war.antlr.jass;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
@@ -48,15 +48,15 @@ public interface JassListener extends ParseTreeListener {
 	 */
 	void exitTypeNameBase(JassParser.TypeNameBaseContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link JassParser#vardef}.
+	 * Enter a parse tree produced by {@link JassParser#varDef}.
 	 * @param ctx the parse tree
 	 */
-	void enterVardef(JassParser.VardefContext ctx);
+	void enterVarDef(JassParser.VarDefContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link JassParser#vardef}.
+	 * Exit a parse tree produced by {@link JassParser#varDef}.
 	 * @param ctx the parse tree
 	 */
-	void exitVardef(JassParser.VardefContext ctx);
+	void exitVarDef(JassParser.VarDefContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link JassParser#glob}.
 	 * @param ctx the parse tree
@@ -68,15 +68,15 @@ public interface JassListener extends ParseTreeListener {
 	 */
 	void exitGlob(JassParser.GlobContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link JassParser#gvar}.
+	 * Enter a parse tree produced by {@link JassParser#varDefGlob}.
 	 * @param ctx the parse tree
 	 */
-	void enterGvar(JassParser.GvarContext ctx);
+	void enterVarDefGlob(JassParser.VarDefGlobContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link JassParser#gvar}.
+	 * Exit a parse tree produced by {@link JassParser#varDefGlob}.
 	 * @param ctx the parse tree
 	 */
-	void exitGvar(JassParser.GvarContext ctx);
+	void exitVarDefGlob(JassParser.VarDefGlobContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link JassParser#argList}.
 	 * @param ctx the parse tree
@@ -97,6 +97,16 @@ public interface JassListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitFunCall(JassParser.FunCallContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JassParser#funName}.
+	 * @param ctx the parse tree
+	 */
+	void enterFunName(JassParser.FunNameContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JassParser#funName}.
+	 * @param ctx the parse tree
+	 */
+	void exitFunName(JassParser.FunNameContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link JassParser#param}.
 	 * @param ctx the parse tree
@@ -168,16 +178,6 @@ public interface JassListener extends ParseTreeListener {
 	 */
 	void exitFunStmt(JassParser.FunStmtContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link JassParser#funName}.
-	 * @param ctx the parse tree
-	 */
-	void enterFunName(JassParser.FunNameContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JassParser#funName}.
-	 * @param ctx the parse tree
-	 */
-	void exitFunName(JassParser.FunNameContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link JassParser#nativ}.
 	 * @param ctx the parse tree
 	 */
@@ -198,15 +198,15 @@ public interface JassListener extends ParseTreeListener {
 	 */
 	void exitStmt(JassParser.StmtContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link JassParser#lvarStmt}.
+	 * Enter a parse tree produced by {@link JassParser#varDefLoc}.
 	 * @param ctx the parse tree
 	 */
-	void enterLvarStmt(JassParser.LvarStmtContext ctx);
+	void enterVarDefLoc(JassParser.VarDefLocContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link JassParser#lvarStmt}.
+	 * Exit a parse tree produced by {@link JassParser#varDefLoc}.
 	 * @param ctx the parse tree
 	 */
-	void exitLvarStmt(JassParser.LvarStmtContext ctx);
+	void exitVarDefLoc(JassParser.VarDefLocContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link JassParser#setStmt}.
 	 * @param ctx the parse tree

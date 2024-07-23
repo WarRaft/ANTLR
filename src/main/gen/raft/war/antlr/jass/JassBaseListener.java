@@ -1,4 +1,4 @@
-// Generated from /Users/nazarpunk/IdeaProjects/ANTLR/src/main/antlr/Jass.g4 by ANTLR 4.13.1
+// Generated from /Users/nazarpunk/IdeaProjects/ANTLR/src/main/antlr/raft/war/antlr/jass/Jass.g4 by ANTLR 4.13.1
 package raft.war.antlr.jass;
 
 import org.antlr.v4.runtime.ParserRuleContext;
@@ -65,13 +65,13 @@ public class JassBaseListener implements JassListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterVardef(JassParser.VardefContext ctx) { }
+	@Override public void enterVarDef(JassParser.VarDefContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitVardef(JassParser.VardefContext ctx) { }
+	@Override public void exitVarDef(JassParser.VarDefContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -89,13 +89,13 @@ public class JassBaseListener implements JassListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterGvar(JassParser.GvarContext ctx) { }
+	@Override public void enterVarDefGlob(JassParser.VarDefGlobContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitGvar(JassParser.GvarContext ctx) { }
+	@Override public void exitVarDefGlob(JassParser.VarDefGlobContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -120,6 +120,18 @@ public class JassBaseListener implements JassListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitFunCall(JassParser.FunCallContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterFunName(JassParser.FunNameContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitFunName(JassParser.FunNameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -209,18 +221,6 @@ public class JassBaseListener implements JassListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFunName(JassParser.FunNameContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitFunName(JassParser.FunNameContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterNativ(JassParser.NativContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -245,13 +245,13 @@ public class JassBaseListener implements JassListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterLvarStmt(JassParser.LvarStmtContext ctx) { }
+	@Override public void enterVarDefLoc(JassParser.VarDefLocContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitLvarStmt(JassParser.LvarStmtContext ctx) { }
+	@Override public void exitVarDefLoc(JassParser.VarDefLocContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

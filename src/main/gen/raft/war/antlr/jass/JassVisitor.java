@@ -1,4 +1,4 @@
-// Generated from /Users/nazarpunk/IdeaProjects/ANTLR/src/main/antlr/Jass.g4 by ANTLR 4.13.1
+// Generated from /Users/nazarpunk/IdeaProjects/ANTLR/src/main/antlr/raft/war/antlr/jass/Jass.g4 by ANTLR 4.13.1
 package raft.war.antlr.jass;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
@@ -35,11 +35,11 @@ public interface JassVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitTypeNameBase(JassParser.TypeNameBaseContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link JassParser#vardef}.
+	 * Visit a parse tree produced by {@link JassParser#varDef}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitVardef(JassParser.VardefContext ctx);
+	T visitVarDef(JassParser.VarDefContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link JassParser#glob}.
 	 * @param ctx the parse tree
@@ -47,11 +47,11 @@ public interface JassVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitGlob(JassParser.GlobContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link JassParser#gvar}.
+	 * Visit a parse tree produced by {@link JassParser#varDefGlob}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitGvar(JassParser.GvarContext ctx);
+	T visitVarDefGlob(JassParser.VarDefGlobContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link JassParser#argList}.
 	 * @param ctx the parse tree
@@ -64,6 +64,12 @@ public interface JassVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitFunCall(JassParser.FunCallContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link JassParser#funName}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFunName(JassParser.FunNameContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link JassParser#param}.
 	 * @param ctx the parse tree
@@ -107,12 +113,6 @@ public interface JassVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitFunStmt(JassParser.FunStmtContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link JassParser#funName}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitFunName(JassParser.FunNameContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link JassParser#nativ}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -125,11 +125,11 @@ public interface JassVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitStmt(JassParser.StmtContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link JassParser#lvarStmt}.
+	 * Visit a parse tree produced by {@link JassParser#varDefLoc}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitLvarStmt(JassParser.LvarStmtContext ctx);
+	T visitVarDefLoc(JassParser.VarDefLocContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link JassParser#setStmt}.
 	 * @param ctx the parse tree

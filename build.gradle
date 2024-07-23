@@ -11,10 +11,12 @@ plugins {
 group 'raft.war.antlr'
 version '1.0-SNAPSHOT'
 
-
 wrapper {
     gradleVersion = '8.9'
 }
+
+rootProject.layout.buildDirectory = project.file('build')
+
 
 repositories {
     mavenLocal()
@@ -48,3 +50,22 @@ sourceSets {
     }
 }
 
+// https://docs.gradle.org/current/dsl/org.gradle.api.tasks.bundling.AbstractArchiveTask.html#org.gradle.api.tasks.bundling.AbstractArchiveTask:destinationDirectory
+jar {
+    includes = ["/raft/**"]
+    destinationDirectory = file("$rootDir/dist")
+    manifest {
+        attributes "Implementation-Title": "War Craft 3 ANTLR grammars."
+        attributes "Implementation-Version": version
+        //attributes "Main-Class" : "com.ti.specteam.programs.Application"
+    }
+}
+
+publishing {
+    publications {
+        //noinspection GroovyAssignabilityCheck
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+}

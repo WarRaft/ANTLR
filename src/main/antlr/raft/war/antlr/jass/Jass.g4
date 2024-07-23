@@ -10,19 +10,20 @@ grammar Jass;
 root: (typeDef | nativ | glob | fun)* EOF ;
 
 // === type
-typeDef : TYPE typeName EXTENDS typeNameBase ;
-typeName : HANDLE|INTEGER|REAL|BOOLEAN|STRING|CODE|ID ;
+typeDef : TYPE typeName EXTENDS typeNameBase;
+typeName : HANDLE|INTEGER|REAL|BOOLEAN|STRING|CODE|ID;
 typeNameBase : typeName;
 
 // === globals
-vardef : typeName ARRAY? ID (EQ expr)?  ;
+varDef : typeName ARRAY? ID (EQ expr)?;
 
-glob : GLOBALS gvar* ENDGLOBALS  ;
-gvar : CONSTANT? vardef  ;
+glob : GLOBALS varDefGlob* ENDGLOBALS  ;
+varDefGlob : CONSTANT? varDef  ;
 
 // === function
-argList : expr (COMMA expr)*  ;
-funCall : funName LPAREN argList? RPAREN  ;
+argList : expr (COMMA expr)*;
+funCall : funName LPAREN argList? RPAREN;
+funName : ID ;
 
 param : typeName ID ;
 paramList : param (COMMA param)*  ;
@@ -33,31 +34,27 @@ fun : CONSTANT? FUNCTION funHead funStmt ENDFUNCTION ;
 funHead : funName funTake? funRet?  ;
 funStmt : stmt*  ;
 
-// https://github.com/JetBrains/Grammar-Kit/blob/master/HOWTO.md#22-using-recoverwhile-attribute
-
-funName : ID ;
 
 nativ : CONSTANT? NATIVE funHead  ;
 
 // === STATEMENT
-stmt :
-    setStmt |
-    callStmt |
-    lvarStmt |
-    returnStmt |
-    ifStmt |
-    loopStmt |
-    exitWhenStmt
+stmt
+    : setStmt
+    | callStmt
+    | varDefLoc
+    | returnStmt
+    | ifStmt
+    | loopStmt
+    | exitWhenStmt
     ;
 
+varDefLoc : LOCAL? varDef  ;
 
-lvarStmt : LOCAL? vardef  ;
+setStmt : SET (arrayAccess|ID) EQ expr;
 
-setStmt : SET? (arrayAccess|ID) EQ expr  ;
+callStmt : DEBUG? CALL funCall;
 
-callStmt : DEBUG? ((CALL? funCall)|(CALL funCall?)) ;
-
-returnStmt : RETURN expr?  ;
+returnStmt : RETURN expr?;
 
 ifStmt : IF expr THEN? (stmt|elseIfStmt|elseStmt)* ENDIF  ;
 elseIfStmt : ELSEIF expr THEN? stmt*  ;
@@ -89,23 +86,23 @@ expr
     | prim
     ;
 
+prim
+    : arrayAccess
+    | funCall
+    | funRef
+    | FALSE
+    | NULL
+    | TRUE
+    | HEXVAL
+    | REALVAL
+    | INTVAL
+    | RAWVAL
+    | STRVAL
+    | ID
+    ;
 
-prim :
-    arrayAccess |
-    funCall |
-    funRef |
-    FALSE |
-    NULL |
-    TRUE |
-    HEXVAL |
-    REALVAL |
-    INTVAL |
-    RAWVAL |
-    STRVAL |
-    ID ;
-
-arrayAccess : ID LBRACK expr? RBRACK ;
-funRef : FUNCTION funName ;
+arrayAccess : ID LBRACK expr? RBRACK;
+funRef : FUNCTION funName;
 
 AND : 'and';
 ARRAY : 'array';
