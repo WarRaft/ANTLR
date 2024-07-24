@@ -22,20 +22,17 @@ varDefGlob : CONSTANT? varDef  ;
 
 // === function
 argList : expr (COMMA expr)*;
-funCall : funName LPAREN argList? RPAREN;
-funName : ID ;
+funCall : ID LPAREN argList? RPAREN;
 
 param : typeName ID ;
 paramList : param (COMMA param)*  ;
 
-funTake : TAKES (NOTHING|paramList) ;
-funRet : RETURNS (NOTHING|typeName) ;
-fun : CONSTANT? FUNCTION funHead funStmt ENDFUNCTION ;
-funHead : funName funTake? funRet?  ;
-funStmt : stmt*  ;
+funTake : TAKES (NOTHING|paramList);
+funRet : RETURNS (NOTHING|typeName);
+fun : CONSTANT? FUNCTION funHead stmt* ENDFUNCTION ;
+funHead : ID funTake funRet;
 
-
-nativ : CONSTANT? NATIVE funHead  ;
+nativ : CONSTANT? NATIVE funHead;
 
 // === STATEMENT
 stmt
@@ -102,7 +99,7 @@ prim
     ;
 
 arrayAccess : ID LBRACK expr? RBRACK;
-funRef : FUNCTION funName;
+funRef : FUNCTION ID;
 
 AND : 'and';
 ARRAY : 'array';

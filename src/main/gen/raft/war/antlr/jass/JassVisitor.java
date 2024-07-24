@@ -65,12 +65,6 @@ public interface JassVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitFunCall(JassParser.FunCallContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link JassParser#funName}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitFunName(JassParser.FunNameContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link JassParser#param}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -106,12 +100,6 @@ public interface JassVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitFunHead(JassParser.FunHeadContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link JassParser#funStmt}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitFunStmt(JassParser.FunStmtContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link JassParser#nativ}.
 	 * @param ctx the parse tree

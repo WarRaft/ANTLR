@@ -98,16 +98,6 @@ public interface JassListener extends ParseTreeListener {
 	 */
 	void exitFunCall(JassParser.FunCallContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link JassParser#funName}.
-	 * @param ctx the parse tree
-	 */
-	void enterFunName(JassParser.FunNameContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JassParser#funName}.
-	 * @param ctx the parse tree
-	 */
-	void exitFunName(JassParser.FunNameContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link JassParser#param}.
 	 * @param ctx the parse tree
 	 */
@@ -167,16 +157,6 @@ public interface JassListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitFunHead(JassParser.FunHeadContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JassParser#funStmt}.
-	 * @param ctx the parse tree
-	 */
-	void enterFunStmt(JassParser.FunStmtContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JassParser#funStmt}.
-	 * @param ctx the parse tree
-	 */
-	void exitFunStmt(JassParser.FunStmtContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link JassParser#nativ}.
 	 * @param ctx the parse tree

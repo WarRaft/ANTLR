@@ -125,18 +125,6 @@ public class JassBaseListener implements JassListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFunName(JassParser.FunNameContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitFunName(JassParser.FunNameContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterParam(JassParser.ParamContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -204,18 +192,6 @@ public class JassBaseListener implements JassListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitFunHead(JassParser.FunHeadContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterFunStmt(JassParser.FunStmtContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitFunStmt(JassParser.FunStmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
