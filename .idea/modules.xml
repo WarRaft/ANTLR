@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/WC3-ANTLR.iml" filepath="$PROJECT_DIR$/.idea/modules/WC3-ANTLR.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/ANTLR.iml" filepath="$PROJECT_DIR$/.idea/ANTLR.iml" />
     </modules>
   </component>
 </project>
