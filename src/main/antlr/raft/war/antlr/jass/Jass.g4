@@ -9,6 +9,7 @@ grammar Jass;
 
 root: (typeDef | nativ | glob | fun)* EOF ;
 
+
 // === type
 typeDef : TYPE typeName EXTENDS typeNameBase;
 typeName : HANDLE|INTEGER|REAL|BOOLEAN|STRING|CODE|ID;
@@ -164,16 +165,13 @@ STRVAL: '"'  ~('\\' | '"')* '"';
 
 RAWVAL: '\''  ~('\'' | '\\')* '\'';
 
-
 fragment HexDigit: [0-9a-fA-F];
 
 HEXVAL: '0' [xX] HexDigit+;
 
 REALVAL : [0-9]+.[0-9]*|.[0-9]+;
 
-
 WS: [ \t\u000C\r]+ -> channel(HIDDEN);
 NL: [\n] -> channel(2);
-
 
 LINE_COMMENT: '//' ~[\r\n]* -> channel(HIDDEN);
